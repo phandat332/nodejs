@@ -1,5 +1,4 @@
-  # 11Dec
-  PHAN VĂN ĐAT - 208000258
+# 11Dec
 cd NodeDemo<br/>
 npm i  <br/>
 npm start
