@@ -9,7 +9,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var itemsRouter = require('./routes/items');
 var authenRouter = require('./routes/authen');
-
+var departmentsRouter = require('./routes/departments');
+var productRoutes = require('./routes/productRoutes');
+var categoryRoutes = require('./routes/categoryRoutes');
 var app = express();
 
 // view engine setup
@@ -26,6 +28,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/items',itemsRouter);
 app.use('/authen',authenRouter);
+app.use('/departments',departmentsRouter);
+app.use('/api', productRoutes);
+app.use('/api', categoryRoutes);
 
 mongoose.connect("mongodb://127.0.0.1:27017/TestS2");
 mongoose.connection.once('open', function(){
@@ -35,13 +40,10 @@ mongoose.connection.on('error', function(){
   console.log(" k thanh cong");
 });
 
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
 
 // error handler
 app.use(function(err, req, res, next) {
